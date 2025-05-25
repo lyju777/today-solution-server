@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+    redis:
+      host: ${SPRING_REDIS_HOST}
+      port: ${SPRING_REDIS_PORT}
+
+kakao:
+  clientId: ${KAKAO_CLIENT_ID}
+  redirectUri: ${KAKAO_REDIRECT_URI}
+
+cors:
+  allowedOrigin: ${CORS_ALLOWED_ORIGIN}
+
+server:
+  port: 9090
