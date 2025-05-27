@@ -1,16 +1,22 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${DB_URL}:${DB_PORT}/${DB_DATABASE_NAME}
+    url: jdbc:mysql://${DB_URL}:${DB_PORT}/${DB_DATABASE_NAME}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
     username: ${DB_USER_NAME}
     password: ${DB_PASSWORD}
   redis:
     host: ${REDIS_HOST}
     port: ${REDIS_PORT}
+    timeout: 2000ms
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
   jpa:
     open-in-view: false
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
     properties:
       hibernate:
         show_sql: true
@@ -24,7 +30,7 @@ cors:
   allowedOrigin: ${DEFAULT_URL}
 
 server:
-  port: 8080
+  port: ${SERVER_PORT:8080}
 
 logging:
   level:
