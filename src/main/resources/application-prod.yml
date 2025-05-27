@@ -1,7 +1,7 @@
 spring:
   datasource:
-    driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://${DB_URL}:${DB_PORT}/${DB_DATABASE_NAME}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${DB_URL}:${DB_PORT}/${DB_DATABASE_NAME}
     username: ${DB_USER_NAME}
     password: ${DB_PASSWORD}
   redis:
@@ -16,7 +16,6 @@ spring:
         show_sql: true
         format_sql: true
 
-
 kakao:
   clientId: ${KAKAO_CLIENT_ID}
   redirectUri: ${KAKAO_REDIRECT_URL}
@@ -24,12 +23,11 @@ kakao:
 cors:
   allowedOrigin: ${DEFAULT_URL}
 
-
 server:
   port: 8080
 
 logging:
   level:
-    root: INFO  # 루트 로깅 레벨을 INFO로 설정
-    com.today_solution_server.demo: INFO  # 특정 패키지에 대한 로깅 레벨 설정 (예: demo 패키지)
+    root: INFO # 루트 로깅 레벨을 INFO로 설정
+    com.today_solution_server.demo: INFO # 특정 패키지에 대한 로깅 레벨 설정 (예: demo 패키지)
     com.today_solution_server.demo.controller: DEBUG
