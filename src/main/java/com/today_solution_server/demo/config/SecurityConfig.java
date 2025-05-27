@@ -35,8 +35,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-//                .antMatchers("/login", "/swagger-ui/**", "/swagger-resources/**").permitAll() //인증 필요 없는 url
-                .antMatchers("/api/auth/login").permitAll() //인증 필요 없는 url
+                .antMatchers("/", "/api/auth/login").permitAll() // 루트 경로와 로그인 경로 허용
                 .anyRequest().authenticated()
                 .and()
                 .cors()  // CORS 설정을 활성화
